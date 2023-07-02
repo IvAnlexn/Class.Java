@@ -1,21 +1,33 @@
 // Основной класс программы
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Character peasant = new Peasant("Иван", 100, 5);
-        Character bandit = new Bandit("Вася", 80, 7);
-        Character sniper = new Sniper("Петр", 120, 10);
-        Character warlock = new Warlock("Маг", 90, 6);
-        Character spearman = new Spearman("Олег", 110, 8);
-        Character crossbowman = new Crossbowman("Артем", 95, 9);
-        Character monk = new Monk("Михаил", 85, 4);
+        List<Character> characters1 = new ArrayList<>();
+        List<Character> characters2 = new ArrayList<>();
 
-        // Вызов действия атаки для каждого персонажа
-        peasant.attack();
-        bandit.attack();
-        sniper.attack();
-        warlock.attack();
-        spearman.attack();
-        crossbowman.attack();
-        monk.attack();
+        // Добавление персонажей в списки
+        for (int i = 0; i < 10; i++) {
+            characters1.add(new Peasant("Иван " + (i + 1), 100, 5));
+            characters2.add(new Bandit("Вася " + (i + 1), 80, 7));
+        }
+
+        // Вызов метода getInfo() для каждого персонажа
+        for (Character character : characters1) {
+            System.out.println(character.getInfo());
+        }
+        // Вызов метода step() для каждого персонажа
+        for (Character character : characters1) {
+            character.step();
+        }
+        // Вызов метода attack() для каждого персонажа
+        for (Character character : characters1) {
+            character.attack();
+        }
+        for (Character character : characters2) {
+            System.out.println(character.getInfo());
+        }
     }
 }

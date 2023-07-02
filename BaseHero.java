@@ -1,16 +1,24 @@
-// Обобщенный класс, описывающий свойства и действия персонажей
-public abstract class Character {
-    public String name;
+// Обобщенный класс, описывающий свойства персонажей
+public abstract class BaseHero implements CharacterActions {
+    private String name;
     private int health;
     private int speed;
 
-    public Character(String name, int health, int speed) {
+    public BaseHero(String name, int health, int speed) {
         this.name = name;
         this.health = health;
         this.speed = speed;
     }
 
-    public abstract void attack();
+    // Реализация метода step() из интерфейса
+    @Override
+    public void step() {
+        System.out.println("Персонаж " + name + " делает шаг.");
+    }
+    @Override
+    public void attack() {
+        System.out.println("Крестьянин " + name + " наносит удар кулаком!");
+    }
 
     // Геттеры и сеттеры для свойств персонажа
     public String getName() {
@@ -35,13 +43,5 @@ public abstract class Character {
 
     public void setSpeed(int speed) {
         this.speed = speed;
-    }
-
-    public String getInfo() {
-        return null;
-    }
-
-    public void step() {
-        System.out.println("Персонаж " + name + " делает шаг.");
     }
 }

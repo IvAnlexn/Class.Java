@@ -8,4 +8,13 @@ public class Bandit extends Character {
     public void attack() {
         System.out.println("Разбойник " + getName() + " наносит удар кинжалом!");
     }
+        @Override
+    public void step() {
+        System.out.println("Разбойник " + getName() + " делает шаг.");
+    }
+
+    @Override
+    public String getInfo() {
+        return "Разбойник";
+    }
 }

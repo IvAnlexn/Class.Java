@@ -5,6 +5,16 @@ public class Peasant extends Character {
     }
 
     @Override
+    public void step() {
+        System.out.println("Крестьянин " + getName() + " делает шаг.");
+    }
+
+    @Override
+    public String getInfo() {
+        return "Крестьянин";
+    }
+
+    @Override
     public void attack() {
         System.out.println("Крестьянин " + getName() + " наносит удар кулаком!");
     }
