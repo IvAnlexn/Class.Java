@@ -1,7 +1,7 @@
 // Класс Разбойник, наследующий обобщенный класс Character
 public class Bandit extends Character {
-    public Bandit(String name, int health, int speed) {
-        super(name, health, speed);
+    public Bandit(String name, int health, int speed, int x, int y) {
+        super(name, health, speed, x, y);
     }
 
     @Override

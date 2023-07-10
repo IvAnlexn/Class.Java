@@ -5,29 +5,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Character> characters1 = new ArrayList<>();
-        List<Character> characters2 = new ArrayList<>();
+        Bandit bandit = new Bandit("Иван", 100, 5, 0, 5);
+        Peasant peasant = new Peasant("Таргет", 50, 3, 20, 15);
 
-        // Добавление персонажей в списки
-        for (int i = 0; i < 10; i++) {
-            characters1.add(new Peasant("Иван " + (i + 1), 100, 5));
-            characters2.add(new Bandit("Вася " + (i + 1), 80, 7));
-        }
+        // Вычисление расстояния между разбойником и фермером
+        double distance = calculateDistance(bandit.getCoordinates(), peasant.getCoordinates());
+        System.out.println("Расстояние до противника: " + distance);
 
-        // Вызов метода getInfo() для каждого персонажа
-        for (Character character : characters1) {
-            System.out.println(character.getInfo());
-        }
-        // Вызов метода step() для каждого персонажа
-        for (Character character : characters1) {
-            character.step();
-        }
-        // Вызов метода attack() для каждого персонажа
-        for (Character character : characters1) {
-            character.attack();
-        }
-        for (Character character : characters2) {
-            System.out.println(character.getInfo());
-        }
+        String targetName = peasant.getName(); // Получение имени противника
+        System.out.println("Имя противника: " + targetName);
+    }
+
+    // Метод для вычисления расстояния между двумя координатами
+    public static double calculateDistance(Coordinates c1, Coordinates c2) {
+        int xDiff = c2.getX() - c1.getX();
+        int yDiff = c2.getY() - c1.getY();
+        return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
     }
 }

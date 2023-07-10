@@ -3,11 +3,15 @@ public abstract class Character {
     public String name;
     private int health;
     private int speed;
-
-    public Character(String name, int health, int speed) {
+    private Coordinates coordinates;
+    public Character(String name, int health, int speed, int x, int y) {
         this.name = name;
         this.health = health;
         this.speed = speed;
+        coordinates = new Coordinates(x, y);
+    }
+        public Coordinates getCoordinates() {
+        return coordinates;
     }
 
     public abstract void attack();
